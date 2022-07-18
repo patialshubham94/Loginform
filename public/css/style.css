@@ -1,0 +1,38 @@
+body {
+    background: #ecf5fc;
+}
+.container {
+    /* max-width: 900px; */
+    margin: 50px auto;
+    text-align: left;
+    font-family: sans-serif;
+}
+form {
+    /* border: 1px solid rgb(187, 187, 187); */
+    background: #ecf5fc;
+    padding: 40px 50px 45px;
+}
+.form-control:focus {
+    border-color: #000;
+    box-shadow: none;
+}
+label {
+    font-weight: 600;
+}
+.error {
+    color: red;
+    font-weight: 400;
+    display: block;
+    padding: 6px 0;
+    font-size: 14px;
+}
+.form-control.error {
+    border-color: red;
+    padding: .375rem .75rem;
+}
+.vl {
+    border-left: 1px solid rgb(187, 187, 187);;
+    height: 99%;
+    position: absolute;
+    left: 50%;
+}
