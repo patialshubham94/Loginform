@@ -9,7 +9,7 @@ use App\Http\Controllers\B2BLeadGenerationController;
 Route::get('/', function () {
     return view('login');
 })->name('login');
-Route::post('/',[User_loginMethods::class,'get_LoginData']);
+Route::post('/',[User_loginMethods::class,'get_LoginData'])->middleware('check');
 
 Route::get('/registration',  [User_loginMethods::class,'get_Registration']);
 Route::post('/registration', [User_loginMethods::class,'get_RegistrationData']);
@@ -30,7 +30,7 @@ Route::get('/logout',function(){
 // Route::group(['middleware' =>['check']],function(){
 //     Route::get('/user', [User_loginMethods::class,'get_User'])->name('userlogin');
 // });
-Route::get('/user', [User_loginMethods::class,'get_User'])->middleware('check')->name('userlogin');
+Route::get('/user', [User_loginMethods::class,'get_User'])->name('userlogin')->middleware('check');
 
 // //copy ffrom laragigs###################################################################
 // // Show Register/Create Form
@@ -50,10 +50,13 @@ Route::get('/user', [User_loginMethods::class,'get_User'])->middleware('check')-
 
 
 
-Route::get('/f', function () {
-    return view('B2BLeadGeneration.form2');
-});
+// Route::get('/f', function () {
+//     return view('B2BLeadGeneration.form2');
+// });
 
-Route::get('/', [B2BLeadGenerationController::class, 'createForm']);
-Route::post('/', [B2BLeadGenerationController::class, 'ContactUsForm'])->name('contact.store');
+// Route::get('/', [B2BLeadGenerationController::class, 'createForm']);
+// Route::post('/', [B2BLeadGenerationController::class, 'ContactUsForm'])->name('contact.store');
+
+Route::get('/reg', [B2BLeadGenerationController::class, 'createForm'])->middleware('check');
+Route::post('/reg', [B2BLeadGenerationController::class, 'ContactUsForm'])->name('contact.store');
 

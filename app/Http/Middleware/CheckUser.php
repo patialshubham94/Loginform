@@ -15,16 +15,13 @@ class CheckUser
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
     public function handle(Request $request, Closure $next)
-    {
+    { 
         if(!$request->session()->has('name'))
         {
             $request->session()->flash('error','User logged in from another device');
             return route('login');
         }
-        // else
-        // {
-        //     return view('user');
-        // }
+       
         return $next($request);
     }
 }

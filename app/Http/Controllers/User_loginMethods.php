@@ -71,7 +71,8 @@ class User_loginMethods extends Controller
                 $req->session()->get('name');
                 // return redirect()->route('userlogin');
                 // return view('user'); //incorrect 
-                return redirect('/user');
+                return redirect('/reg');
+                // return redirect()->route('reglogin');
 
             }
             else{
