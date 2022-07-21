@@ -18,8 +18,8 @@ class CheckUser
     { 
         if(!$request->session()->has('name'))
         {
-            $request->session()->flash('error','User logged in from another device');
-            return route('login');
+            $request->session()->flash('error','You have to login first');
+            return redirect()->route('login');
         }
        
         return $next($request);

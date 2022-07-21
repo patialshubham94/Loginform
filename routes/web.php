@@ -9,7 +9,7 @@ use App\Http\Controllers\B2BLeadGenerationController;
 Route::get('/', function () {
     return view('login');
 })->name('login');
-Route::post('/',[User_loginMethods::class,'get_LoginData'])->middleware('check');
+Route::post('/',[User_loginMethods::class,'get_LoginData']);
 
 Route::get('/registration',  [User_loginMethods::class,'get_Registration']);
 Route::post('/registration', [User_loginMethods::class,'get_RegistrationData']);
@@ -57,6 +57,6 @@ Route::get('/user', [User_loginMethods::class,'get_User'])->name('userlogin')->m
 // Route::get('/', [B2BLeadGenerationController::class, 'createForm']);
 // Route::post('/', [B2BLeadGenerationController::class, 'ContactUsForm'])->name('contact.store');
 
-Route::get('/reg', [B2BLeadGenerationController::class, 'createForm'])->middleware('check');
+Route::get('/reg', [B2BLeadGenerationController::class, 'createForm'])->middleware('check')->name('createForm');
 Route::post('/reg', [B2BLeadGenerationController::class, 'ContactUsForm'])->name('contact.store');
 
